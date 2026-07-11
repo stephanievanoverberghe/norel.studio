@@ -29,9 +29,9 @@ function SocialLink({ destination }: { destination: SocialDestination }) {
       </span>
       <span className="min-w-0 flex-1">
         <span className="block text-[0.82rem] font-semibold leading-none sm:text-sm">{destination.label}</span>
-        <span className="mt-1 block truncate text-[0.58rem] text-white/55 sm:text-[0.62rem]">{destination.handle}</span>
+        <span className="mt-1 block truncate text-[0.58rem] text-white/72 sm:text-[0.62rem]">{destination.handle}</span>
       </span>
-      <ArrowUpRight aria-hidden="true" size={16} className="text-white/46 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+      <ArrowUpRight aria-hidden="true" size={16} className="text-white/68 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
       <span className="sr-only">(ouvre un nouvel onglet)</span>
     </a>
   );
@@ -39,7 +39,7 @@ function SocialLink({ destination }: { destination: SocialDestination }) {
 
 export function LinkHub({ content }: { content: LandingContent }) {
   return (
-    <section className="relative isolate h-dvh overflow-hidden" aria-labelledby="page-title">
+    <section className="link-hub relative isolate" aria-labelledby="page-title">
       <Image
         src={heroImage}
         alt="Peinture de Norel Art représentant un visage voilé dans une palette rouge et noire"
@@ -62,13 +62,13 @@ export function LinkHub({ content }: { content: LandingContent }) {
 
           <BrandMark className="relative justify-center" />
 
-          <p className="mt-2.5 text-[0.55rem] font-semibold uppercase tracking-[0.22em] text-white/62 sm:mt-3 sm:text-[0.62rem]">
+          <p className="mt-2.5 text-[0.55rem] font-semibold uppercase tracking-[0.22em] text-white/76 sm:mt-3 sm:text-[0.62rem]">
             {content.eyebrow}
           </p>
           <h1 id="page-title" className="mx-auto mt-1.5 max-w-[12ch] font-heading text-[clamp(1.8rem,6.4vh,3rem)] leading-[0.92] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.55)]">
             {content.title}
           </h1>
-          <p className="compact-hide mx-auto mt-2 max-w-[34rem] text-[0.65rem] leading-5 text-white/62 sm:text-[0.72rem]">{content.description}</p>
+          <p className="mx-auto mt-2 max-w-[34rem] text-[0.65rem] leading-5 text-white/76 sm:text-[0.72rem]">{content.description}</p>
 
           <nav className="mt-3 sm:mt-4" aria-label="Liens Norel Art">
             <ul className="grid gap-1.5 sm:gap-2">
@@ -90,15 +90,15 @@ export function LinkHub({ content }: { content: LandingContent }) {
                     <ArrowUpRight aria-hidden="true" size={16} />
                   </a>
                 ) : (
-                  <div className="flex h-[3.15rem] items-center gap-3 rounded-2xl border border-dashed border-white/14 bg-black/20 px-3.5 text-left text-white/62 backdrop-blur-xl sm:h-14 sm:px-4" aria-disabled="true">
+                  <div className="flex h-[3.15rem] items-center gap-3 rounded-2xl border border-dashed border-white/20 bg-black/28 px-3.5 text-left text-white/76 backdrop-blur-xl sm:h-14 sm:px-4" aria-disabled="true">
                     <span className="grid size-8 shrink-0 place-items-center rounded-xl border border-white/6 bg-white/[0.055] text-accent sm:size-9">
                       <Globe2 aria-hidden="true" size={16} />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-semibold leading-none text-white/72">{content.websiteLabel}</span>
-                      <span className="mt-1 block text-[0.62rem] text-white/46">{content.websiteStatus}</span>
+                      <span className="block text-sm font-semibold leading-none text-white/86">{content.websiteLabel}</span>
+                      <span className="mt-1 block text-[0.62rem] text-white/70">{content.websiteStatus}</span>
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 px-2 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.12em] text-white/52">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-white/20 px-2 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.12em] text-white/76">
                       <Clock3 aria-hidden="true" size={9} />
                       Bientôt
                     </span>
@@ -108,7 +108,7 @@ export function LinkHub({ content }: { content: LandingContent }) {
             </ul>
           </nav>
 
-          <div className="mt-3 flex items-center justify-center gap-4 text-[0.6rem] text-white/62 sm:mt-4 sm:text-[0.66rem]">
+          <div className="mt-3 flex items-center justify-center gap-4 text-[0.6rem] text-white/76 sm:mt-4 sm:text-[0.66rem]">
             <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex min-h-6 items-center gap-1.5 transition hover:text-white">
               <Mail aria-hidden="true" size={13} />
               Email
@@ -120,7 +120,7 @@ export function LinkHub({ content }: { content: LandingContent }) {
             </a>
           </div>
 
-          <p data-testid="link-hub-footer" className="mt-1.5 text-[0.48rem] uppercase tracking-[0.16em] text-white/34 sm:mt-2">Norel Art · Hauts-de-France</p>
+          <p data-testid="link-hub-footer" className="mt-1.5 text-[0.48rem] uppercase tracking-[0.16em] text-white/64 sm:mt-2">Norel Art · Hauts-de-France</p>
         </div>
       </div>
     </section>
