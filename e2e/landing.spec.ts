@@ -17,6 +17,21 @@ test("affiche les liens officiels dans une interface accessible", async ({ page 
   expect(accessibility.violations).toEqual([]);
 });
 
+test("offre un parcours clavier visible et logique", async ({ page }) => {
+  await page.goto("/");
+
+  const skipLink = page.getByRole("link", { name: "Aller au contenu" });
+  const instagram = page.getByRole("link", { name: /Instagram/ });
+
+  await page.keyboard.press("Tab");
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).toHaveCSS("outline-style", "solid");
+
+  await page.keyboard.press("Tab");
+  await expect(instagram).toBeFocused();
+  await expect(instagram).toHaveCSS("outline-style", "solid");
+});
+
 for (const viewport of [
   { width: 320, height: 568 },
   { width: 375, height: 667 },
@@ -43,6 +58,22 @@ for (const viewport of [
     expect((footerBox?.y ?? 0) + (footerBox?.height ?? 0)).toBeLessThanOrEqual(viewport.height);
   });
 }
+
+test("conserve tout le contenu avec une hauteur fortement réduite", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 256 });
+  await page.goto("/");
+
+  const dimensions = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollHeight: document.documentElement.scrollHeight,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth);
+  expect(dimensions.scrollHeight).toBeGreaterThan(256);
+  await expect(page.getByText("Peintures originales, portraits sur mesure et fresques murales.")).toBeVisible();
+  await expect(page.getByTestId("link-hub-footer")).toBeVisible();
+});
 
 test("publie les métadonnées SEO essentielles", async ({ page }) => {
   await page.goto("/");
